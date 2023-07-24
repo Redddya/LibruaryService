@@ -13,5 +13,5 @@ public class Constants {
             new AnnotationConfigApplicationContext(DBConfigApp.class);
     public static final PersonService PERSON_SERVICE = CONTEXT.getBean(PersonServiceImpl.class);
     public static final BookService BOOK_SERVICE = CONTEXT.getBean(BookServiceImpl.class);
-   // public static final PersonValidator PERSON_VALIDATOR = CONTEXT.getBean(PersonValidator.class);
+    public static final PersonValidator PERSON_VALIDATOR = CONTEXT.getBean(PersonValidator.class);
 }

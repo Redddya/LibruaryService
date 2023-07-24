@@ -36,7 +36,7 @@ public class PeopleController {
     @PostMapping
     public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult) {
-          // PERSON_VALIDATOR.validate(person, bindingResult);
+        PERSON_VALIDATOR.validate(person, bindingResult);
         if (bindingResult.hasErrors()) {
             return "/people/new";
         }
@@ -54,7 +54,7 @@ public class PeopleController {
     public String update(@ModelAttribute Person person,
                          BindingResult bindingResult,
                          @PathVariable int id) {
-        //  PERSON_VALIDATOR.validate(person, bindingResult);
+          PERSON_VALIDATOR.validate(person, bindingResult);
         if (bindingResult.hasErrors()) {
             return "/people/edit";
         }

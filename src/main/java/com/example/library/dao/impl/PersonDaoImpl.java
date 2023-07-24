@@ -20,14 +20,15 @@ public class PersonDaoImpl implements PersonDao {
     public Person findById(int id) {
         return em.find(Person.class, id);
     }
-    public Person findByAllFields(Person person){
+    public boolean isSamePersinExists(Person person){
         TypedQuery<Person> query = em.createQuery("from Person p " +
                 "WHERE p.firstName = :prsn_fn AND p.lastName = :prsn_ln " +
                 "AND p.dateOfBirth = :prsn_dob", Person.class);
         query.setParameter("prsn_fn", person.getFirstName());
         query.setParameter("prsn_ln", person.getLastName());
         query.setParameter("prsn_dob", person.getDateOfBirth());
-        return query.getResultList().get(0);
+        boolean isEmpty = query.getResultList().isEmpty();
+        return isEmpty;
     }
     @Override
     public void save(Person entity) {

@@ -17,7 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = {"com.example.library.dao", "com.example.library.service"})
+@ComponentScan(basePackages = {"com.example.library.dao", "com.example.library.service", "com.example.library.util"})
 @EnableTransactionManagement
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DBConfigApp {

@@ -19,10 +19,10 @@ public class PersonValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Person person = (Person) target;
 
-        if (PERSON_SERVICE.findByAllFields(person) != null) {
-            errors.rejectValue("firstName", "", "This person already exists");
-            errors.rejectValue("lastName", "", "This person already exists");
-            errors.rejectValue("dateOfBirth", "", "This person already exists");
+        if (!PERSON_SERVICE.isSamePersinExists(person)) {
+            errors.rejectValue("firstName", "", "This person is already exists");
+            errors.rejectValue("lastName", "", "This person is already exists");
+            errors.rejectValue("dateOfBirth", "", "This person is already exists");
         }
     }
 }

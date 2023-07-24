@@ -14,7 +14,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
-@ComponentScan({"com.example.library.controller", "com.example.library.util.validator"})
+@ComponentScan({"com.example.library.controller", "com.example.library.util.validator", "com.example.library.util"})
 @Import(DBConfigApp.class)
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {

@@ -17,8 +17,8 @@ public class PersonServiceImpl implements PersonService {
     public Person findById(int id) {
         return dao.findById(id);
     }
-    public Person findByAllFields(Person person){
-        return dao.findByAllFields(person);
+    public boolean isSamePersinExists(Person person){
+        return dao.isSamePersinExists(person);
     }
     @Override
     public void save(Person entity) {

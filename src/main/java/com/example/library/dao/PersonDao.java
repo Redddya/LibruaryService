@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PersonDao extends CRUDDao<Person> {
     public List<Book> findBooksByPersonId(int id);
-    public Person findByAllFields(Person person);
+    public boolean isSamePersinExists(Person person);
 }
