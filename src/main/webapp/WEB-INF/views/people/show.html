@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text = "${person.getFirstName() + ' ' + person.getLastName() + ' ' + person.getDateOfBirth()}" ></p>
+<a th:href = "@{/people/{id}/edit (id=${person.getId()})}">Edit</a>
+<br/>
+<p>This person took this books:</p>
+<br/>
+<div th:each="book:${books}">
+    <a th:href = "@{/books/{id}(id=${book.getId()})}"
+       th:text = "${book.getBookName() + ', ' + book.getAuthor()
+        + ', ' + book.getYear()}"></a>
+</div>
+<br/>
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text = "${book.getBookName() + ', ' + book.getAuthor() + ', ' + book.getYear() }"></p>
+<br/>
+<a th:href = "@{/books/{id}/edit(id=${book.getId()})}">Edit</a>
+
+<br/>
+<form th:method ="PATCH" th:action="@{/books/return/{id}(id=${book.getId()})}">
+    <input type="submit" value="Return book"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+<br/>
+<form th:method="PATCH" th:action="@{/books/{id}/appoint(id=${book.getId()})}">
+    <label for="person">Choose person: </label>
+    <select th:object="${person}" th:field="*{id}" id="person">
+        <option th:each="person : ${people}" th:value="${person.getId()}"
+                th:text="${person.getFirstName() + ' ' + person.getLastName()}"></option>
+    </select>
+    <input type="submit" value="Appoint"/>
+</form>
+<br/>
+<p>This book was taken by:</p>
+<br/>
+<a th:href = "@{/people/{id}(id=${book.getPerson().getId()})}"
+   th:text = "${book.getPerson().getFirstName() + ' ' + book.getPerson().getLastName()}"></a>
+</body>
+</html>
