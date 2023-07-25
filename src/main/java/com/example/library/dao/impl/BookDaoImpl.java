@@ -2,7 +2,6 @@ package com.example.library.dao.impl;
 
 import com.example.library.dao.BookDao;
 import com.example.library.domain.Book;
-import com.example.library.domain.Person;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

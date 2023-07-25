@@ -27,8 +27,7 @@ public class PersonDaoImpl implements PersonDao {
         query.setParameter("prsn_fn", person.getFirstName());
         query.setParameter("prsn_ln", person.getLastName());
         query.setParameter("prsn_dob", person.getDateOfBirth());
-        boolean isEmpty = query.getResultList().isEmpty();
-        return isEmpty;
+        return query.getResultList().isEmpty();
     }
     @Override
     public void save(Person entity) {

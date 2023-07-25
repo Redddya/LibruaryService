@@ -2,7 +2,6 @@ package com.example.library.service.impl;
 
 import com.example.library.dao.BookDao;
 import com.example.library.domain.Book;
-import com.example.library.domain.Person;
 import com.example.library.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

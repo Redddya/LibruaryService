@@ -1,14 +1,19 @@
 package com.example.library.util.validator;
 
 import com.example.library.domain.Person;
+import com.example.library.service.PersonService;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import static com.example.library.util.constant.Constants.PERSON_SERVICE;
-
 @Component
 public class PersonValidator implements Validator {
+    private final PersonService personService;
+
+    public PersonValidator(PersonService personService) {
+        this.personService = personService;
+    }
+
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -19,7 +24,7 @@ public class PersonValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Person person = (Person) target;
 
-        if (!PERSON_SERVICE.isSamePersinExists(person)) {
+        if (!personService.isSamePersinExists(person)) {
             errors.rejectValue("firstName", "", "This person is already exists");
             errors.rejectValue("lastName", "", "This person is already exists");
             errors.rejectValue("dateOfBirth", "", "This person is already exists");
